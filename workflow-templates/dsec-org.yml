@@ -1,0 +1,20 @@
+#WIP
+name: Dsec CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest #change this
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          name: ${{ github.repository }} 
+          ref: refs/heads/release 
+      - name: ctfd upload challenge
+        run: python3 setup.py
