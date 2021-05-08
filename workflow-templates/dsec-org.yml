@@ -9,12 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest #change this
+    runs-on: dragonsecsi/infra/ghactions:1.0
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          name: ${{ github.repository }} 
-          ref: refs/heads/release 
       - name: ctfd upload challenge
-        run: python3 setup.py
+        run: python3 ./.github/setup.py ${{ secrets.ADMIN_TOKEN }}
