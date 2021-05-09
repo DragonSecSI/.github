@@ -12,7 +12,7 @@ def init():
     os.system(f"echo '{CTFD_URL}\n{CTFD_TOKEN}\ny' | ctf init")
 
 def file():
-    for subdirs, dirs, files in os.walk("."):
+    for subdirs, dirs, files in os.walk(".."):
         for dirr in dirs:
             if "DCTF-chall" in dirr:
                 print(dirr)
