@@ -25,6 +25,6 @@ if __name__ == "__main__":
     if not challenge:
         challenge="challenge.yml"
     print("this is what we sync: "+challenge)
-    challenge+="/challenge.yml"
-    os.system(f"cat '{challenge}'")
+    #challenge+="/challenge.yml"
+    os.system(f"ls '{challenge}'")
     #os.system(f"ctf challenge sync '{challenge}';ctf challenge install '{challenge}'")
