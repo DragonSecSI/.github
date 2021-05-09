@@ -1,9 +1,9 @@
 name: "File existence check"
 on:
   push:
-    branches: [ $default_branch ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ $default_branch ]
+    branches: [ $default-branch ]
 
 jobs:
   file_existence:
