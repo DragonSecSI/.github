@@ -1,6 +1,4 @@
-#WIP
 name: Dsec CI
-
 on:
   push:
     branches: [ $default-branch ]
@@ -9,9 +7,19 @@ on:
 
 jobs:
   build:
-    runs-on: dragonsecsi/infra/ghactions:1.0
-
+    runs-on: ubuntu-18.04
+    container:
+      image: docker.pkg.github.com/dragonsecsi/infra/ghactions:1.0
+      credentials:
+        username: Aleks-dotcom
+        password: ${{ secrets.REGISTRY_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Checkout .github
+        uses: actions/checkout@v2
+        with:
+          repository: dragonsecsi/.github
+          path: ./data
       - name: ctfd upload challenge
-        run: python3 ./.github/setup.py ${{ secrets.ADMIN_TOKEN }}
+        run: python3 data/setup.py ${{ secrets.ADMIN_TOKEN }}
