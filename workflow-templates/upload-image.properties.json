@@ -1,0 +1,5 @@
+{
+    "name": "build-upload-images",
+    "description": "build and upload docker images",
+    "iconName": "dragonsec_logo"
+}
