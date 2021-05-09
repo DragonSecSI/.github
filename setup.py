@@ -24,5 +24,5 @@ if __name__ == "__main__":
     challenge = file()
     if not challenge:
         challenge="challenge.yml"
-    print(challenge)
+    print("this is what we sync: "+challenge)
     os.system(f"ctf challenge sync '{challenge}';ctf challenge install '{challenge}'")
