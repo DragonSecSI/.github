@@ -20,11 +20,10 @@ jobs:
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
-        - name: Push to GitHub Packages
-          uses: docker/build-push-action@v1
-          with:
-            username: Aleks-dotcom
-            password: ${{ secrets.REGISTRY_TOKEN }}
-            registry: docker.pkg.github.com
-            repository: dragonsecsi/${{ github.repository }}
-            tag_with_ref: true
+        uses: docker/build-push-action@v1
+        with:
+          username: Aleks-dotcom
+          password: ${{ secrets.REGISTRY_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: dragonsecsi/${{ github.repository }}
+          tag_with_ref: true
