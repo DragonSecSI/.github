@@ -1,16 +1,21 @@
 name: "File existence check"
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ $default_branch ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ $default_branch ]
 
 jobs:
   file_existence:
     runs-on: ubuntu-latest
     steps:
+      - name: Repo lowecase
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          
       - name: Checkout repo
         uses: actions/checkout@v1
+
 
       - name: Check file existence
         id: check_files
@@ -20,12 +25,10 @@ jobs:
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
-        run: |
-          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
           username: Aleks-dotcom
           password: ${{ secrets.REGISTRY_TOKEN }}
           registry: docker.pkg.github.com
-          repository: dragonsecsi/${{ env.REPO }}
+          repository: ${{ env.REPO }}/image
           tag_with_ref: true
