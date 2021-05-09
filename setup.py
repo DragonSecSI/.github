@@ -26,5 +26,5 @@ if __name__ == "__main__":
         challenge="challenge.yml"
     print("this is what we sync: "+challenge)
     #challenge+="/challenge.yml"
-    os.system(f"ls ./data")
+    os.system(f"ls .")
     #os.system(f"ctf challenge sync '{challenge}';ctf challenge install '{challenge}'")
