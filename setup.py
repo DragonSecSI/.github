@@ -14,17 +14,9 @@ def init():
 def file():
     for subdirs, dirs, files in os.walk(".."):
         for dirr in dirs:
-            print(dirr)
             if "DCTF-chall" in dirr:
-                print(dirr)
                 return dirr
 
 if __name__ == "__main__":
     init()
-    #challenge = file()
-    #if not challenge:
-     #   challenge="challenge.yml"
-    #print("this is what we sync: "+challenge)
-    #challenge+="/challenge.yml"
-    #os.system(f"ls .")
     os.system(f"ctf challenge sync challenge.yml ;ctf challenge install challenge.yml ")
