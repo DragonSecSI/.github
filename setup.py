@@ -21,10 +21,10 @@ def file():
 
 if __name__ == "__main__":
     init()
-    challenge = file()
-    if not challenge:
-        challenge="challenge.yml"
-    print("this is what we sync: "+challenge)
+    #challenge = file()
+    #if not challenge:
+     #   challenge="challenge.yml"
+    #print("this is what we sync: "+challenge)
     #challenge+="/challenge.yml"
-    os.system(f"ls .")
-    #os.system(f"ctf challenge sync '{challenge}';ctf challenge install '{challenge}'")
+    #os.system(f"ls .")
+    os.system(f"ctf challenge sync challenge.yml ;ctf challenge install challenge.yml ")
