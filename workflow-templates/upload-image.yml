@@ -20,10 +20,12 @@ jobs:
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
         uses: docker/build-push-action@v1
         with:
           username: Aleks-dotcom
           password: ${{ secrets.REGISTRY_TOKEN }}
           registry: docker.pkg.github.com
-          repository: dragonsecsi/${{ github.repository }}
+          repository: dragonsecsi/${{ env.REPO }}
           tag_with_ref: true
