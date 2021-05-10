@@ -69,11 +69,22 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-
+    - name: Repo lowecase
+      run: |
+        echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+        
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
-
+      
+    - name: Setup TF vars
+      run: |
+        export "TF_VAR_container_name=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+        export "TF_VAR_container_group_name=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+        export "TF_VAR_resource_group_name=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+        export "TF_VAR_container_image=docker.pkg.github.com/${{ env.REPO }}/$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+        echo "$TF_VAR_resource_group_name $TF_VAR_container_group_name $TF_VAR_container_name $TF_VAR_container_image"
+        
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
