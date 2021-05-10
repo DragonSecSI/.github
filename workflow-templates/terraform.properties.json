@@ -1,0 +1,5 @@
+{
+    "name": "terraform",
+    "description": "apply terraform files to build dockers for challs in cloud",
+    "iconName": "dragonsec_logo"
+}
