@@ -1,4 +1,4 @@
-name: "File existence check"
+name: "Stage challenge for production"
 on:
   push:
     branches: [ $default-branch ]
