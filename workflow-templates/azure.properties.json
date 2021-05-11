@@ -1,0 +1,5 @@
+{
+    "name": "azure",
+    "description": "build and upload docker images to the cloud",
+    "iconName": "dragonsec_logo"
+}
