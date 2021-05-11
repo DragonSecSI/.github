@@ -1,4 +1,4 @@
-name: Dsec CI
+name: CTFD
 on:
   push:
     branches: [ $default-branch ]
