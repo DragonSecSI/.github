@@ -80,7 +80,7 @@ jobs:
           export "TF_VAR_resource_group_name=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
           export "TF_VAR_storage_account=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]' | rev | cut -d "-" -f 2,1 | sed s/-/""/g | rev)"
           export "TF_VAR_storage_container=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]' | rev | cut -d "-" -f 2,1 | sed s/-/""/g | rev)container"
-          export "TF_VAR_container_image=ghcr.io/${{ env.REPO }}:main"
+          export "TF_VAR_container_image=ghcr.io/${{ env.REPO }}"
           terraform plan
         working-directory: ${{ env.working-directory }}
 
@@ -94,6 +94,6 @@ jobs:
           export "TF_VAR_resource_group_name=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
           export "TF_VAR_storage_account=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]' | rev | cut -d "-" -f 2,1 | sed s/-/""/g | rev)"
           export "TF_VAR_storage_container=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]' | rev | cut -d "-" -f 2,1 | sed s/-/""/g | rev)container"
-          export "TF_VAR_container_image=ghcr.io/${{ env.REPO }}:main"
+          export "TF_VAR_container_image=ghcr.io/${{ env.REPO }}"
           terraform apply -auto-approve
         working-directory: ${{ env.working-directory }}
