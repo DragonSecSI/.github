@@ -22,4 +22,4 @@ jobs:
           repository: dragonsecsi/.github
           path: ./data
       - name: ctfd upload challenge
-        run: python3 data/setup.py ${{ secrets.ADMIN_TOKEN }}
+        run: python3 data/setup.py ${{ secrets.ADMIN_TOKEN }} ${{ secrets.TOTALLY_NOT_FLAG }}
