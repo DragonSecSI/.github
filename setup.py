@@ -19,4 +19,5 @@ def file():
 
 if __name__ == "__main__":
     init()
+    print(sys.argv[2])
     os.system(f"ctf challenge sync challenge.yml ;ctf challenge install challenge.yml ")
